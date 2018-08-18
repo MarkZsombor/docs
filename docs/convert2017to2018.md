@@ -2,9 +2,22 @@
 
 The goal of this guide is to detail the differences from the previous year so one knows what to do to convert a 2017 Battlesnake to work in the 2018 engine. Due to the nature of Battlesnake that will mean adjusting how your snake deals with the various post routes on your server.
 
-### General Notes
+## General Notes
 
 At the point in time of the writing of this doc the engine does not deal with taunts, user selected head/tail shapes or a profile picture. Some if not all of this functionality should be reincorporated later in the development process. Including them in your response objects shouldn't (fingers crossed) harm anything. 
+
+## Engine/Rule Changes
+
+In previous years the check for death occurred after the snake movements have been implemented. In 2018 the new order is:
+
+1. Grow Head
+2. Check for Death
+3. Check for Eating Food
+* If no eating occurred, remove tail.
+
+Due to this the act of moving into a space currently occupied by the tip of a snake's tail will result in a collision and DEATH :skull:, in previous years that spot would have been vacated and therefore safe (unless that snake had eaten).
+
+## Route Request/Response Changes
 
 ## /start POST
 
